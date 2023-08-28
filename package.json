@@ -1,0 +1,10 @@
+{
+    "name": "chatinc-nodered-whatsapp-hessequa-bot",
+    "description": "A Node-RED Project",
+    "version": "0.0.7",
+    "private": true,
+    "dependencies": {
+        "moment-timezone": "^0.5.38",
+        "@chatbots-studio/cbs-platform-node-red-palette": "^1.17.2"
+    }
+}

@@ -1,0 +1,43 @@
+version: 0.2
+env:
+  variables:
+    PROJECT: "chatinc-nodered-whatsapp-hessequa-bot"
+    STAGE: "dev"
+    STACK: "chat-inc"
+phases:
+  install:
+    commands:
+      - echo 'install'
+      - VERSION=$(bash scripts/versioning_aws)
+      - ACCOUNT_ID=$(aws sts get-caller-identity --query "Account" --output text)
+      - echo ${DOCKERHUB_PASSWORD} | docker login --username ${DOCKERHUB_USERNAME} --password-stdin
+      - aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com
+  build:
+    commands:
+      #insert here your build commands
+      - echo 'build'
+      - docker build --build-arg GITHUB_TOKEN=${GITHUB_TOKEN} -t ${PROJECT}:latest .
+      - docker tag ${PROJECT}:latest ${ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${PROJECT}:latest
+      - docker tag ${PROJECT}:latest ${ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${PROJECT}:${VERSION}
+      - docker push --all-tags ${ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${PROJECT}
+  post_build:
+    commands:
+      - mkdir image
+      - ProjectFolder="${PROJECT}_${STAGE}"
+      - SERVICE="${STACK}-${STAGE}_${PROJECT}"
+      - sed -i "s/{{FOLDER}}/${ProjectFolder}/g" ./appspec.yml
+      - sed -i "s/{{FOLDER}}/${ProjectFolder}/g" ./scripts/start_server
+      - sed -i "s/{{FOLDER}}/${ProjectFolder}/g" ./scripts/stop_server
+      - sed -i "s/{{APPLICATION}}/${PROJECT}/g" ./scripts/stop_server
+      - sed -i "s/{{APPLICATION}}/${PROJECT}/g" ./scripts/start_server
+      - sed -i "s/{{VERSION}}/${VERSION}/g" ./scripts/start_server
+      - sed -i "s/{{SERVICE}}/${SERVICE}/g" ./scripts/start_server
+      - cp appspec.yml image/
+      - cp -r scripts image/
+      - ls image
+      - echo 'done'
+artifacts:
+  type: zip
+  files:
+    - "**/*"
+  base-directory: image

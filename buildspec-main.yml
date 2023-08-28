@@ -1,0 +1,16 @@
+version: 0.2
+env:
+  variables:
+    IMAGE: "chatinc-nodered-whatsapp-hessequa-bot"
+    DOCKER_REPO: "docker.chatbotsstudio.com"
+    PROJECT: "ChatInc"
+phases:
+  install:
+    commands:
+      - echo 'install'
+      - echo ${HARBOR_PASSWORD} | docker login ${DOCKER_REPO} --username ${HARBOR_USERNAME} --password-stdin
+      - echo ${DOCKERHUB_PASSWORD} | docker login --username ${DOCKERHUB_USERNAME} --password-stdin
+  build:
+    commands:
+      - echo 'build'
+      - python3 scripts/main_build.py

@@ -1,0 +1,623 @@
+{
+    "node-red": {
+        "name": "node-red",
+        "version": "3.0.2",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "junction": {
+                "name": "junction",
+                "types": [
+                    "junction"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/common/05-junction.js"
+            },
+            "inject": {
+                "name": "inject",
+                "types": [
+                    "inject"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/common/20-inject.js"
+            },
+            "debug": {
+                "name": "debug",
+                "types": [
+                    "debug"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/common/21-debug.js"
+            },
+            "complete": {
+                "name": "complete",
+                "types": [
+                    "complete"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/common/24-complete.js"
+            },
+            "catch": {
+                "name": "catch",
+                "types": [
+                    "catch"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/common/25-catch.js"
+            },
+            "status": {
+                "name": "status",
+                "types": [
+                    "status"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/common/25-status.js"
+            },
+            "link": {
+                "name": "link",
+                "types": [
+                    "link in",
+                    "link out",
+                    "link call"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/common/60-link.js"
+            },
+            "comment": {
+                "name": "comment",
+                "types": [
+                    "comment"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/common/90-comment.js"
+            },
+            "unknown": {
+                "name": "unknown",
+                "types": [
+                    "unknown"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/common/98-unknown.js"
+            },
+            "function": {
+                "name": "function",
+                "types": [
+                    "function"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/function/10-function.js"
+            },
+            "switch": {
+                "name": "switch",
+                "types": [
+                    "switch"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/function/10-switch.js"
+            },
+            "change": {
+                "name": "change",
+                "types": [
+                    "change"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/function/15-change.js"
+            },
+            "range": {
+                "name": "range",
+                "types": [
+                    "range"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/function/16-range.js"
+            },
+            "template": {
+                "name": "template",
+                "types": [
+                    "template"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/function/80-template.js"
+            },
+            "delay": {
+                "name": "delay",
+                "types": [
+                    "delay"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/function/89-delay.js"
+            },
+            "trigger": {
+                "name": "trigger",
+                "types": [
+                    "trigger"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/function/89-trigger.js"
+            },
+            "exec": {
+                "name": "exec",
+                "types": [
+                    "exec"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/function/90-exec.js"
+            },
+            "rbe": {
+                "name": "rbe",
+                "types": [
+                    "rbe"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/function/rbe.js"
+            },
+            "tls": {
+                "name": "tls",
+                "types": [
+                    "tls-config"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/05-tls.js"
+            },
+            "httpproxy": {
+                "name": "httpproxy",
+                "types": [
+                    "http proxy"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/06-httpproxy.js"
+            },
+            "mqtt": {
+                "name": "mqtt",
+                "types": [
+                    "mqtt in",
+                    "mqtt out",
+                    "mqtt-broker"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/10-mqtt.js"
+            },
+            "httpin": {
+                "name": "httpin",
+                "types": [
+                    "http in",
+                    "http response"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httpin.js"
+            },
+            "httprequest": {
+                "name": "httprequest",
+                "types": [
+                    "http request"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js"
+            },
+            "websocket": {
+                "name": "websocket",
+                "types": [
+                    "websocket in",
+                    "websocket out",
+                    "websocket-listener",
+                    "websocket-client"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/22-websocket.js"
+            },
+            "tcpin": {
+                "name": "tcpin",
+                "types": [
+                    "tcp in",
+                    "tcp out",
+                    "tcp request"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/31-tcpin.js"
+            },
+            "udp": {
+                "name": "udp",
+                "types": [
+                    "udp in",
+                    "udp out"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/32-udp.js"
+            },
+            "CSV": {
+                "name": "CSV",
+                "types": [
+                    "csv"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/parsers/70-CSV.js"
+            },
+            "HTML": {
+                "name": "HTML",
+                "types": [
+                    "html"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/parsers/70-HTML.js"
+            },
+            "JSON": {
+                "name": "JSON",
+                "types": [
+                    "json"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/parsers/70-JSON.js"
+            },
+            "XML": {
+                "name": "XML",
+                "types": [
+                    "xml"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/parsers/70-XML.js"
+            },
+            "YAML": {
+                "name": "YAML",
+                "types": [
+                    "yaml"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/parsers/70-YAML.js"
+            },
+            "split": {
+                "name": "split",
+                "types": [
+                    "split",
+                    "join"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/sequence/17-split.js"
+            },
+            "sort": {
+                "name": "sort",
+                "types": [
+                    "sort"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/sequence/18-sort.js"
+            },
+            "batch": {
+                "name": "batch",
+                "types": [
+                    "batch"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/sequence/19-batch.js"
+            },
+            "file": {
+                "name": "file",
+                "types": [
+                    "file",
+                    "file in"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/storage/10-file.js"
+            },
+            "watch": {
+                "name": "watch",
+                "types": [
+                    "watch"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/local/lib/node_modules/node-red/node_modules/@node-red/nodes/core/storage/23-watch.js"
+            }
+        }
+    },
+    "nrlint": {
+        "name": "nrlint",
+        "version": "0.0.1",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "nrlint": {
+                "name": "nrlint",
+                "types": [
+                    "nrlint"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "nrlint",
+                "file": "/usr/local/lib/node_modules/nrlint/nr/nrlint.js"
+            }
+        }
+    },
+    "nrlint-plugin-func-style-eslint": {
+        "name": "nrlint-plugin-func-style-eslint",
+        "version": "1.0.0",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "nrlint-plugin-func-style-eslint": {
+                "name": "nrlint-plugin-func-style-eslint",
+                "types": [],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "nrlint-plugin-func-style-eslint",
+                "file": "/usr/local/lib/node_modules/nrlint-plugin-func-style-eslint/dist/plugin.js"
+            }
+        }
+    },
+    "nrlint-plugin-no-func-name": {
+        "name": "nrlint-plugin-no-func-name",
+        "version": "1.0.0",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "nrlint-plugin-no-func-name": {
+                "name": "nrlint-plugin-no-func-name",
+                "types": [],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "nrlint-plugin-no-func-name",
+                "file": "/usr/local/lib/node_modules/nrlint-plugin-no-func-name/dist/plugin.js"
+            }
+        }
+    },
+    "@chatbots-studio/cbs-platform-node-red-palette": {
+        "name": "@chatbots-studio/cbs-platform-node-red-palette",
+        "version": "1.19.0",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "check_date": {
+                "name": "check_date",
+                "types": [
+                    "check_date"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "@chatbots-studio/cbs-platform-node-red-palette",
+                "file": "/Users/bohdanbuhriienko/Documents/GitHub/Chatinc-nodered-whatsapp-hessequa-bot/node_modules/@chatbots-studio/cbs-platform-node-red-palette/custom_nodes/check_date/check_date.js"
+            },
+            "check_time": {
+                "name": "check_time",
+                "types": [
+                    "check_time"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "@chatbots-studio/cbs-platform-node-red-palette",
+                "file": "/Users/bohdanbuhriienko/Documents/GitHub/Chatinc-nodered-whatsapp-hessequa-bot/node_modules/@chatbots-studio/cbs-platform-node-red-palette/custom_nodes/check_time/check_time.js"
+            },
+            "check_phone": {
+                "name": "check_phone",
+                "types": [
+                    "check_phone"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "@chatbots-studio/cbs-platform-node-red-palette",
+                "file": "/Users/bohdanbuhriienko/Documents/GitHub/Chatinc-nodered-whatsapp-hessequa-bot/node_modules/@chatbots-studio/cbs-platform-node-red-palette/custom_nodes/check_phone/check_phone.js"
+            },
+            "check_number": {
+                "name": "check_number",
+                "types": [
+                    "check_number"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "@chatbots-studio/cbs-platform-node-red-palette",
+                "file": "/Users/bohdanbuhriienko/Documents/GitHub/Chatinc-nodered-whatsapp-hessequa-bot/node_modules/@chatbots-studio/cbs-platform-node-red-palette/custom_nodes/check_number/check_number.js"
+            },
+            "check_fractions": {
+                "name": "check_fractions",
+                "types": [
+                    "check_fractions"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "@chatbots-studio/cbs-platform-node-red-palette",
+                "file": "/Users/bohdanbuhriienko/Documents/GitHub/Chatinc-nodered-whatsapp-hessequa-bot/node_modules/@chatbots-studio/cbs-platform-node-red-palette/custom_nodes/check_fractions/check_fractions.js"
+            },
+            "check_number_length": {
+                "name": "check_number_length",
+                "types": [
+                    "check_number_length"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "@chatbots-studio/cbs-platform-node-red-palette",
+                "file": "/Users/bohdanbuhriienko/Documents/GitHub/Chatinc-nodered-whatsapp-hessequa-bot/node_modules/@chatbots-studio/cbs-platform-node-red-palette/custom_nodes/check_number_length/check_number_length.js"
+            },
+            "check_email": {
+                "name": "check_email",
+                "types": [
+                    "check_email"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "@chatbots-studio/cbs-platform-node-red-palette",
+                "file": "/Users/bohdanbuhriienko/Documents/GitHub/Chatinc-nodered-whatsapp-hessequa-bot/node_modules/@chatbots-studio/cbs-platform-node-red-palette/custom_nodes/check_email/check_email.js"
+            },
+            "find_customer_by_phone": {
+                "name": "find_customer_by_phone",
+                "types": [
+                    "find-customer-by-phone"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "@chatbots-studio/cbs-platform-node-red-palette",
+                "file": "/Users/bohdanbuhriienko/Documents/GitHub/Chatinc-nodered-whatsapp-hessequa-bot/node_modules/@chatbots-studio/cbs-platform-node-red-palette/custom_nodes/customer_api/find_customer_by_phone/find_customer_by_phone.js"
+            },
+            "get_customer_data": {
+                "name": "get_customer_data",
+                "types": [
+                    "get-customer-data"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "@chatbots-studio/cbs-platform-node-red-palette",
+                "file": "/Users/bohdanbuhriienko/Documents/GitHub/Chatinc-nodered-whatsapp-hessequa-bot/node_modules/@chatbots-studio/cbs-platform-node-red-palette/custom_nodes/customer_api/get_customer_data/get_customer_data.js"
+            },
+            "send_message": {
+                "name": "send_message",
+                "types": [
+                    "send-message"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "@chatbots-studio/cbs-platform-node-red-palette",
+                "file": "/Users/bohdanbuhriienko/Documents/GitHub/Chatinc-nodered-whatsapp-hessequa-bot/node_modules/@chatbots-studio/cbs-platform-node-red-palette/custom_nodes/message_api/send_message/send_message.js"
+            },
+            "NLP_send_message": {
+                "name": "NLP_send_message",
+                "types": [
+                    "NLP-send-message"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "@chatbots-studio/cbs-platform-node-red-palette",
+                "file": "/Users/bohdanbuhriienko/Documents/GitHub/Chatinc-nodered-whatsapp-hessequa-bot/node_modules/@chatbots-studio/cbs-platform-node-red-palette/custom_nodes/message_api/NLP_send_message/NLP_send_message.js"
+            },
+            "templates_editor": {
+                "name": "templates_editor",
+                "types": [
+                    "templates-editor"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "@chatbots-studio/cbs-platform-node-red-palette",
+                "file": "/Users/bohdanbuhriienko/Documents/GitHub/Chatinc-nodered-whatsapp-hessequa-bot/node_modules/@chatbots-studio/cbs-platform-node-red-palette/custom_nodes/message_api/templates_editor/templates_editor.js"
+            },
+            "update_customer": {
+                "name": "update_customer",
+                "types": [
+                    "update-customer"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "@chatbots-studio/cbs-platform-node-red-palette",
+                "file": "/Users/bohdanbuhriienko/Documents/GitHub/Chatinc-nodered-whatsapp-hessequa-bot/node_modules/@chatbots-studio/cbs-platform-node-red-palette/custom_nodes/customer_api/update_customer/update_customer.js"
+            }
+        }
+    }
+}
