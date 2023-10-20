@@ -1,54 +1,56 @@
 version: '3.7'
 services:
-  company-nodered-messanger:
-    image: 'localhost:5000/company-nodered-messanger:latest'
+  chatinc-nodered-whatsapp-hessequa-bot:
+    image: '429230094765.dkr.ecr.af-south-1.amazonaws.com/chatinc-nodered-whatsapp-hessequa-bot:latest'
     restart: unless-stopped
     networks:
-      - ChatbotNetwork
-    environment:
-      - CUSTOMER_API_URL=
-      - CUSTOMER_API_KEY=
-      - MESSAGES_API_URL=
-      - MESSAGES_API_KEY=
-      - IMAGES_API_URL=
-      - IMAGES_API_KEY=
-      - NLP_CC_API_WRAPPER_URL=
-      - NLP_CC_API_WRAPPER_KEY=
-      - API_WRAPPER_URL=
-      - API_WRAPPER_KEY=
-      - WEBVIEW_URL=
-      - NODE_ENV=development
+      - PublicNetwork
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
     deploy:
-      labels:
-        - "traefik.enable=true"
-        - "traefik.microservices=company"
-        - "traefik.http.routers.company-nodered-messanger.entrypoints=http-internal"
-        - "traefik.http.services.company-nodered-messanger.loadbalancer.server.port=1880"
-        - "traefik.http.routers.company-nodered-messanger.service=company-nodered-messanger"
-        - "traefik.http.routers.company-nodered-messanger.rule=PathPrefix(`/company-nodered-messanger`)"
-        - "traefik.http.middlewares.company-nodered-messanger-stripprefix.stripprefix.prefixes=/company-nodered-messanger"
-        - "traefik.http.middlewares.company-nodered-messanger-stripprefix.stripprefix.forceSlash=false"
-        - "traefik.http.routers.company-nodered-messanger.middlewares=company-nodered-messanger-stripprefix"
       mode: replicated
       replicas: 1
+      labels:
+        - "traefik.enable=true"
+        - "traefik.traefik=true"
+        - "traefik.http.routers.chatinc-nodered-whatsapp-hessequa-bot.entrypoints=http-internal"
+        - "traefik.http.services.chatinc-nodered-whatsapp-hessequa-bot.loadbalancer.server.port=1880"
+        - "traefik.http.routers.chatinc-nodered-whatsapp-hessequa-bot.service=chatinc-nodered-whatsapp-hessequa-bot"
+        - "traefik.http.routers.chatinc-nodered-whatsapp-hessequa-bot.rule=PathPrefix(`/chatinc-nodered-whatsapp-hessequa-bot`)"
+        - "traefik.http.middlewares.chatinc-nodered-whatsapp-hessequa-bot-stripprefix.stripprefix.prefixes=/chatinc-nodered-whatsapp-hessequa-bot"
+        - "traefik.http.middlewares.chatinc-nodered-whatsapp-hessequa-bot-stripprefix.stripprefix.forceSlash=false"
+        - "traefik.http.routers.chatinc-nodered-whatsapp-hessequa-bot.middlewares=chatinc-nodered-whatsapp-hessequa-bot-stripprefix"
       placement:
         constraints:
-          - node.labels.microservices == company
+          - node.labels.host == app
       resources:
         limits:
-          cpus: '0.3'
-          memory: 500M
+          cpus: '0.2'
+          memory: 250M
         reservations:
-          cpus: '0.1'
-          memory: 350M
+          cpus: '0.2'
+          memory: 250M
     logging:
       driver: awslogs
       options:
-        awslogs-region: eu-central-1
-        awslogs-group: company-nodered-messanger
+        awslogs-region: af-south-1
+        awslogs-group: chatinc-nodered-whatsapp-hessequa-bot
         awslogs-create-group: 'true'
         tag: '{{.Name}}_{{ with split .ImageName ":" }}{{index . 1}}{{end}}_{{.ID}}'
+    environment:
+      - CUSTOMER_API_URL=http://core-customer-api:3020
+      - CUSTOMER_API_KEY=UL3etRzEwhZmUyJs5TqkFMNj
+      - MESSAGES_API_URL=http://core-messages-api:3010
+      - MESSAGES_API_KEY=AxUsY4bLXytnG63cgwTGgpWt
+      - BOT_ID=1
+      - COMPANY_ID=38
+      - CHANNEL=WA
+      - TIMEZONE=EET
+      - NODE_ENV=development
+      # logs config
+      - "LOGSENE_ENABLED=true"
+      - "LOGS_TOKEN=bot-chatinc-nodered-whatsapp-hessequa-bot"
 
 networks:
-  ChatbotNetwork:
+  PublicNetwork:
     external: true
