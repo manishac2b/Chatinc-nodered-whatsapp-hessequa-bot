@@ -10857,8 +10857,9 @@
         "type": "function",
         "z": "5aeea1c008d64d4d",
         "name": "create contact",
-        "func": "msg.method = \"POST\";\nmsg.url = `${msg.chatwootApiUrl}/accounts/${msg.accountId}/contacts`;\n\nmsg.payload = {\n    \"phone_number\": msg.chatId,\n    \"additional_attributes\": {},\n    \"contact_inboxes\": [\n        {\n            \"source_id\": \"4f8e3124-2beb-450a-a3e6-7fcd92e011c5\",\n            \"inbox\": {\n                \"id\": 0,\n                \"name\": \"string\",\n                \"website_url\": \"string\",\n                \"channel_type\": \"string\",\n                \"avatar_url\": \"string\",\n                \"widget_color\": \"string\",\n                \"website_token\": \"string\",\n                \"enable_auto_assignment\": true,\n                \"web_widget_script\": \"string\",\n                \"welcome_title\": \"string\",\n                \"welcome_tagline\": \"string\",\n                \"greeting_enabled\": true,\n                \"greeting_message\": \"string\"\n            }\n        }\n    ]\n};\nmsg.headers = {};\nmsg.headers['Content-Type'] = 'application/json';\nmsg.headers['api_access_token'] = msg.chatwootApiKey;\nreturn msg;",
+        "func": "msg.method = \"POST\";\nmsg.url = `${msg.chatwootApiUrl}/accounts/${msg.accountId}/contacts`;\n\nmsg.payload = {\n    \"name\": msg.chatId,\n    \"phone_number\": msg.chatId,\n    \"additional_attributes\": {},\n    \"contact_inboxes\": [\n        {\n            \"source_id\": \"4f8e3124-2beb-450a-a3e6-7fcd92e011c5\",\n            \"inbox\": {\n                \"id\": 0,\n                \"name\": \"string\",\n                \"website_url\": \"string\",\n                \"channel_type\": \"string\",\n                \"avatar_url\": \"string\",\n                \"widget_color\": \"string\",\n                \"website_token\": \"string\",\n                \"enable_auto_assignment\": true,\n                \"web_widget_script\": \"string\",\n                \"welcome_title\": \"string\",\n                \"welcome_tagline\": \"string\",\n                \"greeting_enabled\": true,\n                \"greeting_message\": \"string\"\n            }\n        }\n    ]\n};\nmsg.headers = {};\nmsg.headers['Content-Type'] = 'application/json';\nmsg.headers['api_access_token'] = msg.chatwootApiKey;\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -10868,40 +10869,6 @@
         "wires": [
             [
                 "1a2458c028369a32"
-            ]
-        ]
-    },
-    {
-        "id": "13da46957d13bf5f",
-        "type": "subflow:8e9dd0b44d3c40ea",
-        "z": "5aeea1c008d64d4d",
-        "name": "",
-        "x": 2000,
-        "y": 440,
-        "wires": [
-            [
-                "0afbf421ee30e33d",
-                "09842406edb2d6af"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "d927241fe54cf962",
-        "type": "function",
-        "z": "5aeea1c008d64d4d",
-        "name": "create conversation",
-        "func": "msg.method = \"POST\";\nmsg.url = `${msg.chatwootApiUrl}/accounts/${msg.accountId}/conversations`;\n\nmsg.payload = {\n    \"source_id\": msg.chatId,\n    \"inbox_id\": msg.inboxId,\n    \"contact_id\": msg.contactId\n};\nmsg.headers = {};\nmsg.headers['Content-Type'] = 'application/json';\nmsg.headers['api_access_token'] = msg.chatwootApiKey;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1810,
-        "y": 440,
-        "wires": [
-            [
-                "13da46957d13bf5f"
             ]
         ]
     },
@@ -11045,8 +11012,9 @@
         "type": "function",
         "z": "5aeea1c008d64d4d",
         "name": "create message (text)",
-        "func": "msg.method = \"POST\";\nmsg.url = `${msg.chatwootApiUrl}/accounts/${msg.accountId}/conversations/${msg.customerSettings.conversationId}/messages`;\n\nmsg.payload = {\n    \"id\": 0,\n    \"content\": msg.text,\n    \"inbox_id\": 0,\n    \"conversation_id\": 0,\n    \"message_type\": 0,\n    \"content_type\": null,\n    \"content_attributes\": {},\n    \"created_at\": 0,\n    \"private\": false,\n    \"sender\": {\n        \"id\": 0,\n        \"name\": \"BotUser\",\n        \"type\": \"contact\"\n    }\n};\nmsg.headers = {};\nmsg.headers['Content-Type'] = 'application/json';\nmsg.headers['api_access_token'] = msg.chatwootApiKey;\nreturn msg;",
+        "func": "msg.method = \"POST\";\nmsg.url = `${msg.chatwootApiUrl}/accounts/${msg.accountId}/conversations/${msg.conversationId}/messages`;\n\nmsg.payload = {\n    \"id\": 0,\n    \"content\": msg.text,\n    \"inbox_id\": 0,\n    \"conversation_id\": 0,\n    \"message_type\": 0,\n    \"content_type\": null,\n    \"content_attributes\": {},\n    \"created_at\": 0,\n    \"private\": false,\n    \"sender\": {\n        \"id\": 0,\n        \"name\": \"BotUser\",\n        \"type\": \"contact\"\n    }\n};\nmsg.headers = {};\nmsg.headers['Content-Type'] = 'application/json';\nmsg.headers['api_access_token'] = msg.chatwootApiKey;\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -11056,33 +11024,6 @@
         "wires": [
             [
                 "a3aef217e862e2f1"
-            ]
-        ]
-    },
-    {
-        "id": "0afbf421ee30e33d",
-        "type": "change",
-        "z": "5aeea1c008d64d4d",
-        "name": "set conversationId",
-        "rules": [
-            {
-                "t": "set",
-                "p": "conversationId",
-                "pt": "msg",
-                "to": "payload.id",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 2190,
-        "y": 440,
-        "wires": [
-            [
-                "f449e47acb308fb8"
             ]
         ]
     },
@@ -11121,23 +11062,6 @@
         "wires": []
     },
     {
-        "id": "09842406edb2d6af",
-        "type": "debug",
-        "z": "5aeea1c008d64d4d",
-        "name": "create conversation call",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2050,
-        "y": 380,
-        "wires": []
-    },
-    {
         "id": "41ca1d8b6af5e7e7",
         "type": "debug",
         "z": "5aeea1c008d64d4d",
@@ -11152,108 +11076,6 @@
         "statusType": "auto",
         "x": 2500,
         "y": 120,
-        "wires": []
-    },
-    {
-        "id": "79683444a699501a",
-        "type": "debug",
-        "z": "5aeea1c008d64d4d",
-        "name": "set conversationId",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2630,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "f449e47acb308fb8",
-        "type": "function",
-        "z": "5aeea1c008d64d4d",
-        "name": "set conversationId",
-        "func": "msg.service = \"CustomerAPI\"\n\nmsg.method = \"POST\"\nmsg.url = `${msg.customerApi}/settings`;\nmsg.headers = {\n    \"authorization\": msg.customerApiKey,\n    \"x-trace-id\": msg.traceID,\n    \"x-user-id\": msg.userID\n}\n\nlet cart = [];\n\nmsg.payload = {\n    \"conversationId\": msg.conversationId\n}\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2410,
-        "y": 440,
-        "wires": [
-            [
-                "3aaa46529930448b"
-            ]
-        ]
-    },
-    {
-        "id": "3aaa46529930448b",
-        "type": "subflow:8e9dd0b44d3c40ea",
-        "z": "5aeea1c008d64d4d",
-        "name": "",
-        "x": 2600,
-        "y": 440,
-        "wires": [
-            [
-                "79683444a699501a",
-                "8ba14f975d071f18"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "a4a8e15d18a52f2f",
-        "type": "subflow:8e9dd0b44d3c40ea",
-        "z": "5aeea1c008d64d4d",
-        "name": "",
-        "x": 2960,
-        "y": 440,
-        "wires": [
-            [
-                "f5ce5da3a6569867",
-                "c8ea03353c2c2c8a"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "b77258311494b343",
-        "type": "function",
-        "z": "5aeea1c008d64d4d",
-        "name": "create message",
-        "func": "msg.method = \"POST\";\nmsg.url = `${msg.chatwootApiUrl}/accounts/${msg.accountId}/conversations/${msg.conversationId}/messages`;\n\nmsg.payload = {\n    \"id\": 0,\n    \"content\": \"New message from \" + msg.chatId,\n    \"inbox_id\": 0,\n    \"conversation_id\": 0,\n    \"message_type\": 0,\n    \"content_type\": null,\n    \"content_attributes\": {},\n    \"created_at\": 0,\n    \"private\": false,\n    \"sender\": {\n        \"id\": 0,\n        \"name\": \"BotUser\",\n        \"type\": \"contact\"\n    }\n};\nmsg.headers = {};\nmsg.headers['Content-Type'] = 'application/json';\nmsg.headers['api_access_token'] = msg.chatwootApiKey;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2800,
-        "y": 520,
-        "wires": [
-            [
-                "a4a8e15d18a52f2f"
-            ]
-        ]
-    },
-    {
-        "id": "f5ce5da3a6569867",
-        "type": "debug",
-        "z": "5aeea1c008d64d4d",
-        "name": "create massage call",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 3000,
-        "y": 380,
         "wires": []
     },
     {
@@ -11281,7 +11103,7 @@
                 "ca06bb91e7c9c553"
             ],
             [
-                "d927241fe54cf962"
+                "eabaab29242e4b0e"
             ]
         ]
     },
@@ -11292,12 +11114,13 @@
         "name": "set startDialogFlag",
         "func": "msg.service = \"CustomerAPI\"\n\nmsg.method = \"POST\"\nmsg.url = `${msg.customerApi}/settings`;\nmsg.headers = {\n    \"authorization\": msg.customerApiKey,\n    \"x-trace-id\": msg.traceID,\n    \"x-user-id\": msg.userID\n}\n\nmsg.payload = {\n    \"dialogIsActive\": true\n}\n\nreturn msg;\n\n// msg.method = \"GET\";\n// msg.url = `${msg.chatwootApiUrl}/accounts/${msg.accountId}/contacts/search?q=${msg.chatId}`;\n\n// msg.payload = {};\n// msg.headers = {};\n// msg.headers['Content-Type'] = 'application/json';\n// msg.headers['api_access_token'] = msg.chatwootApiKey;\n// return msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1950,
-        "y": 280,
+        "x": 2610,
+        "y": 300,
         "wires": [
             [
                 "665d36cdedf3a79f"
@@ -11309,7 +11132,7 @@
         "type": "subflow:8e9dd0b44d3c40ea",
         "z": "5aeea1c008d64d4d",
         "name": "",
-        "x": 2220,
+        "x": 2820,
         "y": 280,
         "wires": [
             [
@@ -11336,14 +11159,14 @@
         "checkall": "false",
         "repair": false,
         "outputs": 2,
-        "x": 1520,
-        "y": 240,
+        "x": 1540,
+        "y": 280,
         "wires": [
             [
-                "ed837016a637de14"
+                "4ad846e40abf36ef"
             ],
             [
-                "4ff6c505c6e06ecc"
+                "395abd2722a5a231"
             ]
         ]
     },
@@ -11352,11 +11175,12 @@
         "type": "subflow:8e9dd0b44d3c40ea",
         "z": "5aeea1c008d64d4d",
         "name": "",
-        "x": 2580,
-        "y": 280,
+        "x": 3220,
+        "y": 200,
         "wires": [
             [
-                "c8ea03353c2c2c8a"
+                "c8ea03353c2c2c8a",
+                "49b4e8cc4d6d56b7"
             ],
             [
                 "5e06e2d2c8a9751b"
@@ -11368,14 +11192,15 @@
         "type": "function",
         "z": "5aeea1c008d64d4d",
         "name": "create message",
-        "func": "msg.method = \"POST\";\nmsg.url = `${msg.chatwootApiUrl}/accounts/${msg.accountId}/conversations/${msg.customerSettings.conversationId}/messages`;\n\nmsg.payload = {\n    \"id\": 0,\n    \"content\": \"New Message from \" + msg.chatId,\n    \"inbox_id\": 0,\n    \"conversation_id\": 0,\n    \"message_type\": 0,\n    \"content_type\": null,\n    \"content_attributes\": {},\n    \"created_at\": 0,\n    \"private\": false,\n    \"sender\": {\n        \"id\": 0,\n        \"name\": \"BotUser\",\n        \"type\": \"contact\"\n    }\n};\nmsg.headers = {};\nmsg.headers['Content-Type'] = 'application/json';\nmsg.headers['api_access_token'] = msg.chatwootApiKey;\nreturn msg;",
+        "func": "msg.method = \"POST\";\nmsg.url = `${msg.chatwootApiUrl}/accounts/${msg.accountId}/conversations/${msg.conversationId}/messages`;\n\nmsg.payload = {\n    \"id\": 0,\n    \"content\": \"New Message from \" + msg.chatId,\n    \"inbox_id\": 0,\n    \"conversation_id\": 0,\n    \"message_type\": 0,\n    \"content_type\": null,\n    \"content_attributes\": {},\n    \"created_at\": 0,\n    \"private\": false,\n    \"sender\": {\n        \"id\": 0,\n        \"name\": \"BotUser\",\n        \"type\": \"contact\"\n    }\n};\nmsg.headers = {};\nmsg.headers['Content-Type'] = 'application/json';\nmsg.headers['api_access_token'] = msg.chatwootApiKey;\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2400,
-        "y": 280,
+        "x": 3020,
+        "y": 240,
         "wires": [
             [
                 "4a9b2c4d13baa52f"
@@ -11526,8 +11351,8 @@
         "templateDescriptionButtonsContainerToEdit": [],
         "templateDesciptionDetailsToEdit": "main",
         "templateDesciptionTextToEdit": "",
-        "x": 3340,
-        "y": 280,
+        "x": 3420,
+        "y": 200,
         "wires": [
             [],
             [],
@@ -11579,8 +11404,9 @@
         "type": "function",
         "z": "5aeea1c008d64d4d",
         "name": "create message (image/pdf)",
-        "func": "msg.method = \"POST\";\nmsg.url = `${msg.chatwootApiUrl}/accounts/${msg.accountId}/conversations/${msg.customerSettings.conversationId}/messages`;\nmsg.payload = {\n    'attachments[]': {\n        'value': msg.payload,\n        'options': {\n            'filename': 'New file'+msg.fileExt\n        }\n    },\n    \"message_type\": \"incoming\",\n}\n\n\nmsg.headers = {};\nmsg.headers['Content-Type'] = \"multipart/form-data\";\nmsg.headers['api_access_token'] = msg.chatwootApiKey;\n\n// msg.payload = {\n//     \"id\": 0,\n//     \"content\": \"image\",\n//     \"inbox_id\": 0,\n//     \"conversation_id\": 0,\n//     \"message_type\": 0,\n//     \"content_type\": \"multipart/form-data\",\n//     \"content_attributes\": {},\n//     \"attachments\": [\n//         binaryFile\n//     ],\n//     \"created_at\": 0,\n//     \"private\": false,\n//     \"sender\": {\n//         \"id\": 0,\n//         \"name\": \"BotUser\",\n//         \"type\": \"contact\"\n//     }\n// };\n\nreturn msg;",
+        "func": "msg.method = \"POST\";\nmsg.url = `${msg.chatwootApiUrl}/accounts/${msg.accountId}/conversations/${msg.conversationId}/messages`;\nmsg.payload = {\n    'attachments[]': {\n        'value': msg.payload,\n        'options': {\n            'filename': 'New file'+msg.fileExt\n        }\n    },\n    \"message_type\": \"incoming\",\n}\n\n\nmsg.headers = {};\nmsg.headers['Content-Type'] = \"multipart/form-data\";\nmsg.headers['api_access_token'] = msg.chatwootApiKey;\n\n// msg.payload = {\n//     \"id\": 0,\n//     \"content\": \"image\",\n//     \"inbox_id\": 0,\n//     \"conversation_id\": 0,\n//     \"message_type\": 0,\n//     \"content_type\": \"multipart/form-data\",\n//     \"content_attributes\": {},\n//     \"attachments\": [\n//         binaryFile\n//     ],\n//     \"created_at\": 0,\n//     \"private\": false,\n//     \"sender\": {\n//         \"id\": 0,\n//         \"name\": \"BotUser\",\n//         \"type\": \"contact\"\n//     }\n// };\n\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -11660,8 +11486,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 2610,
-        "y": 340,
+        "x": 3390,
+        "y": 280,
         "wires": [
             [
                 "3901016f331f7d32"
@@ -11702,11 +11528,11 @@
             "3901016f331f7d32",
             "4043088a11280859"
         ],
-        "x": 1635,
-        "y": 440,
+        "x": 1565,
+        "y": 560,
         "wires": [
             [
-                "d927241fe54cf962"
+                "eabaab29242e4b0e"
             ]
         ]
     },
@@ -11719,8 +11545,8 @@
         "links": [
             "7eb0055c0889cc82"
         ],
-        "x": 2725,
-        "y": 340,
+        "x": 3505,
+        "y": 280,
         "wires": []
     },
     {
@@ -11756,36 +11582,394 @@
         ]
     },
     {
-        "id": "8ba14f975d071f18",
+        "id": "eabaab29242e4b0e",
         "type": "function",
         "z": "5aeea1c008d64d4d",
-        "name": "set startDialogFlag",
-        "func": "msg.service = \"CustomerAPI\"\n\nmsg.method = \"POST\"\nmsg.url = `${msg.customerApi}/settings`;\nmsg.headers = {\n    \"authorization\": msg.customerApiKey,\n    \"x-trace-id\": msg.traceID,\n    \"x-user-id\": msg.userID\n}\n\nmsg.payload = {\n    \"dialogIsActive\": true\n}\n\nreturn msg;\n\n// msg.method = \"GET\";\n// msg.url = `${msg.chatwootApiUrl}/accounts/${msg.accountId}/contacts/search?q=${msg.chatId}`;\n\n// msg.payload = {};\n// msg.headers = {};\n// msg.headers['Content-Type'] = 'application/json';\n// msg.headers['api_access_token'] = msg.chatwootApiKey;\n// return msg;",
+        "name": "check conversation exist?",
+        "func": "msg.method = \"GET\";\nmsg.url = `${msg.chatwootApiUrl}/accounts/${msg.accountId}/contacts/${msg.contactId}/conversations`;\n\nmsg.payload = {\n    \"inbox_id\": msg.inboxId\n};\nmsg.headers = {};\nmsg.headers['Content-Type'] = 'application/json';\nmsg.headers['api_access_token'] = msg.chatwootApiKey;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1790,
+        "y": 640,
+        "wires": [
+            [
+                "9201b6d7f79cc60c"
+            ]
+        ]
+    },
+    {
+        "id": "9201b6d7f79cc60c",
+        "type": "subflow:8e9dd0b44d3c40ea",
+        "z": "5aeea1c008d64d4d",
+        "name": "",
+        "x": 1800,
+        "y": 740,
+        "wires": [
+            [
+                "ec2f0489012c31d1",
+                "1543fc6ce3bfa206",
+                "e98371ffccdf746b"
+            ],
+            [
+                "2b56d2ac1b676daf",
+                "1543fc6ce3bfa206"
+            ]
+        ]
+    },
+    {
+        "id": "e98371ffccdf746b",
+        "type": "debug",
+        "z": "5aeea1c008d64d4d",
+        "name": "debug 76",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.payload[0]",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1940,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "1543fc6ce3bfa206",
+        "type": "debug",
+        "z": "5aeea1c008d64d4d",
+        "name": "check conversation exiss log",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1860,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "ec2f0489012c31d1",
+        "type": "switch",
+        "z": "5aeea1c008d64d4d",
+        "name": "conversation found?",
+        "property": "payload.payload[0]",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 2080,
+        "y": 760,
+        "wires": [
+            [
+                "597ea965c45d934f"
+            ],
+            [
+                "2b56d2ac1b676daf"
+            ]
+        ]
+    },
+    {
+        "id": "597ea965c45d934f",
+        "type": "function",
+        "z": "5aeea1c008d64d4d",
+        "name": "check conversation found for inbox?",
+        "func": "let conversationFineDetail = msg.payload.payload ?? [];\nmsg.conversationId = null;\nfor (let i = 0; i < conversationFineDetail.length; i++) {\n    if (conversationFineDetail[i]['inbox_id'] == msg.inboxId) {\n        msg.conversationId = conversationFineDetail[i]['id'];\n        break;\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2170,
+        "y": 640,
+        "wires": [
+            [
+                "b3b2dd42e751887e",
+                "a9ec0582d3309ad4"
+            ]
+        ]
+    },
+    {
+        "id": "2b56d2ac1b676daf",
+        "type": "function",
+        "z": "5aeea1c008d64d4d",
+        "name": "create conversation",
+        "func": "msg.method = \"POST\";\nmsg.url = `${msg.chatwootApiUrl}/accounts/${msg.accountId}/conversations`;\n\nmsg.payload = {\n    \"source_id\": msg.chatId,\n    \"inbox_id\": msg.inboxId,\n    \"contact_id\": msg.contactId\n};\nmsg.headers = {};\nmsg.headers['Content-Type'] = 'application/json';\nmsg.headers['api_access_token'] = msg.chatwootApiKey;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2550,
-        "y": 520,
+        "x": 2150,
+        "y": 880,
         "wires": [
             [
-                "6337cc677f3a82e6"
+                "7cb958e0a6043edf"
             ]
         ]
     },
     {
-        "id": "6337cc677f3a82e6",
+        "id": "b3b2dd42e751887e",
+        "type": "switch",
+        "z": "5aeea1c008d64d4d",
+        "name": "conversationId?",
+        "property": "conversationId",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 2340,
+        "y": 720,
+        "wires": [
+            [
+                "2b56d2ac1b676daf"
+            ],
+            [
+                "4b5bd6939ee4cd01"
+            ]
+        ]
+    },
+    {
+        "id": "a9ec0582d3309ad4",
+        "type": "debug",
+        "z": "5aeea1c008d64d4d",
+        "name": "debug 77",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "conversationId",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2360,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "7cb958e0a6043edf",
         "type": "subflow:8e9dd0b44d3c40ea",
         "z": "5aeea1c008d64d4d",
         "name": "",
-        "x": 2694.4443359375,
-        "y": 590,
+        "x": 2400,
+        "y": 840,
         "wires": [
             [
-                "b77258311494b343"
+                "17c571d72e6eed4a",
+                "40b85e1c337eb537"
+            ],
+            [
+                "40b85e1c337eb537"
+            ]
+        ]
+    },
+    {
+        "id": "4b5bd6939ee4cd01",
+        "type": "function",
+        "z": "5aeea1c008d64d4d",
+        "name": "set conversationId",
+        "func": "msg.service = \"CustomerAPI\"\n\nmsg.method = \"POST\"\nmsg.url = `${msg.customerApi}/settings`;\nmsg.headers = {\n    \"authorization\": msg.customerApiKey,\n    \"x-trace-id\": msg.traceID,\n    \"x-user-id\": msg.userID\n}\n\nlet cart = [];\n\nmsg.payload = {\n    \"conversationId\": msg.conversationId\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2650,
+        "y": 660,
+        "wires": [
+            [
+                "4da9872b714b5233"
+            ]
+        ]
+    },
+    {
+        "id": "17c571d72e6eed4a",
+        "type": "change",
+        "z": "5aeea1c008d64d4d",
+        "name": "set conversationId",
+        "rules": [
+            {
+                "t": "set",
+                "p": "conversationId",
+                "pt": "msg",
+                "to": "payload.id",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2630,
+        "y": 760,
+        "wires": [
+            [
+                "4b5bd6939ee4cd01"
+            ]
+        ]
+    },
+    {
+        "id": "40b85e1c337eb537",
+        "type": "debug",
+        "z": "5aeea1c008d64d4d",
+        "name": "create conversation call",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2630,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "4da9872b714b5233",
+        "type": "subflow:8e9dd0b44d3c40ea",
+        "z": "5aeea1c008d64d4d",
+        "name": "",
+        "x": 2860,
+        "y": 660,
+        "wires": [
+            [
+                "4ff6c505c6e06ecc"
             ],
             []
+        ]
+    },
+    {
+        "id": "49b4e8cc4d6d56b7",
+        "type": "delay",
+        "z": "5aeea1c008d64d4d",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 3400,
+        "y": 140,
+        "wires": [
+            [
+                "ffd83d59628f7d5a"
+            ]
+        ]
+    },
+    {
+        "id": "ffd83d59628f7d5a",
+        "type": "link out",
+        "z": "5aeea1c008d64d4d",
+        "name": "create 1st message",
+        "mode": "link",
+        "links": [
+            "e63040e50d48f483"
+        ],
+        "x": 3445,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "e63040e50d48f483",
+        "type": "link in",
+        "z": "5aeea1c008d64d4d",
+        "name": "Create first message",
+        "links": [
+            "ffd83d59628f7d5a"
+        ],
+        "x": 1455,
+        "y": 140,
+        "wires": [
+            [
+                "ed837016a637de14"
+            ]
+        ]
+    },
+    {
+        "id": "395abd2722a5a231",
+        "type": "change",
+        "z": "5aeea1c008d64d4d",
+        "name": "set conversationId",
+        "rules": [
+            {
+                "t": "set",
+                "p": "conversationId",
+                "pt": "msg",
+                "to": "customerSettings.conversationId",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2050,
+        "y": 280,
+        "wires": [
+            [
+                "4ff6c505c6e06ecc"
+            ]
+        ]
+    },
+    {
+        "id": "4ad846e40abf36ef",
+        "type": "change",
+        "z": "5aeea1c008d64d4d",
+        "name": "set conversationId",
+        "rules": [
+            {
+                "t": "set",
+                "p": "conversationId",
+                "pt": "msg",
+                "to": "customerSettings.conversationId",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1670,
+        "y": 220,
+        "wires": [
+            [
+                "ed837016a637de14"
+            ]
         ]
     },
     {
