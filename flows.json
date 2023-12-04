@@ -1791,8 +1791,7 @@
                 "3012c25e89e35cbe"
             ],
             [
-                "341d9e48e37f4fab",
-                "ae8cf7bb6230fd23"
+                "35f77dcf3633da9e"
             ],
             [
                 "28ce16234359cc8f"
@@ -2182,8 +2181,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1220,
-        "y": 880,
+        "x": 1260,
+        "y": 960,
         "wires": []
     },
     {
@@ -2428,8 +2427,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1010,
-        "y": 1000,
+        "x": 1290,
+        "y": 840,
         "wires": []
     },
     {
@@ -3030,6 +3029,53 @@
                 "1ec41339b9fc26d9"
             ]
         ]
+    },
+    {
+        "id": "35f77dcf3633da9e",
+        "type": "switch",
+        "z": "c006f5a803bed002",
+        "name": "Private message?",
+        "property": "payload.originalBody.private",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1070,
+        "y": 980,
+        "wires": [
+            [
+                "341d9e48e37f4fab",
+                "ae8cf7bb6230fd23"
+            ],
+            [
+                "f368a8afea0c6510"
+            ]
+        ]
+    },
+    {
+        "id": "f368a8afea0c6510",
+        "type": "debug",
+        "z": "c006f5a803bed002",
+        "name": "Private message",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 1060,
+        "wires": []
     },
     {
         "id": "ffb27b2ae071c95f",
